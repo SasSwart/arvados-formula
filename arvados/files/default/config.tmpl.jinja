@@ -36,9 +36,7 @@ Clusters:
     {% if arvados.users.default_vm_uuid is defined %}
       AutoSetupNewUsersWithVmUUID: {{ arvados.users.default_vm_uuid }}
     {% endif %}
-    {% if arvados.users.auto_setup_repository is defined %}
       AutoSetupNewUsersWithRepository: {{ arvados.users.auto_setup_repository }}
-    {% endif %}
 
     TLS:
       Certificate: "{{ arvados.cluster.tls.certificate }}"

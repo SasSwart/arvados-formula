@@ -42,6 +42,8 @@ arvados:
       key: ''
       insecure: false
 
+  users:
+    auto_setup_repository: false
   ### SERVICES
   ##### API
   api:
