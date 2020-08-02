@@ -21,7 +21,7 @@ Clusters:
       TrustAllContent: true
 
     Login:
-    {% if arvados.sso.use_controller is false %}
+    {% if arvados.sso.use_controller %}
       ProviderAppSecret: "{{ arvados.cluster.tokens.provider_secret }}"
       ProviderAppID: arvados-server
     {% else %}
