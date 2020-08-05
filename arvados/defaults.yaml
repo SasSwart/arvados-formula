@@ -42,6 +42,16 @@ arvados:
       key: ''
       insecure: false
 
+  login:
+    use_controller: false
+    google_client_id: "changeme"
+    google_client_secret: "changeme"
+
+  users:
+    new_users_are_active: true
+    auto_admin_first_user: true
+    auto_setup_new_users: true
+    auto_setup_repository: false
   ### SERVICES
   ##### API
   api:
@@ -56,6 +66,7 @@ arvados:
       port: 8004
   ##### CONTROLLER
   controller:
+    hostname: controller
     pkg:
       name: arvados-controller
     service:
@@ -73,6 +84,7 @@ arvados:
       port: 9006
   ##### KEEPPROXY
   keepproxy:
+    hostname: keep
     pkg:
       name: keepproxy
     service:
@@ -86,8 +98,15 @@ arvados:
       name: keep-web
       # webdav
       port: 9002
+    collections:
+      hostname: "collections"
+    download:
+      hostname: "download"
   ##### KEEPSTORE
   keepstore:
+    hosts:
+      - keep0
+      - keep1
     pkg:
       name: keepstore
     service:
@@ -116,6 +135,7 @@ arvados:
         - arvados-login-sync
   ##### WORKBENCH
   workbench:
+    hostname: workbench
     pkg:
       name: arvados-workbench
     service:
@@ -124,12 +144,14 @@ arvados:
       port: 9000
   ##### WORKBENCH2
   workbench2:
+    hostname: workbench2
     pkg:
       name: arvados-workbench2
     service:
       name: nginx
   #####  WEBSOCKET
   websocket:
+    hostname: ws
     pkg:
       name: arvados-ws
     service:
@@ -137,6 +159,7 @@ arvados:
       port: 8005
   ##### SSO
   sso:
+    hostname: sso
     pkg:
       name: arvados-sso
     service:
