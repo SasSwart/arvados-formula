@@ -33,6 +33,10 @@ Clusters:
       NewUsersAreActive: true
       AutoAdminFirstUser: true
       AutoSetupNewUsers: true
+    {% if arvados.users.default_vm_uuid is defined %}
+      AutoSetupNewUsersWithVmUUID: {{ arvados.users.default_vm_uuid }}
+    {% endif %}
+      AutoSetupNewUsersWithRepository: {{ arvados.users.auto_setup_repository }}
 
     TLS:
       Certificate: "{{ arvados.cluster.tls.certificate }}"
@@ -77,7 +81,7 @@ Clusters:
     Services:
       # Composer: FIXME!!!
       Controller:
-        ExternalURL: "https://{{ arvados.cluster.domain }}"
+        ExternalURL: "https://{{ arvados.controller.hostname }}.{{ arvados.cluster.domain }}"
         InternalURLs:
           "http://localhost:{{ arvados.controller.service.port }}": {}
       DispatchCloud:
@@ -93,26 +97,28 @@ Clusters:
         InternalURLs:
           "http://localhost:{{ arvados.api.service.port }}": {}
       SSO:
-        ExternalURL: "https://sso.{{ arvados.cluster.domain }}"
+        ExternalURL: "https://{{ arvados.sso.hostname }}.{{ arvados.cluster.domain }}"
       WebDAV:
-        ExternalURL: https://collections.{{ arvados.cluster.domain }}
+        ExternalURL: https://{{ arvados.webdav.collections.hostname }}.{{ arvados.cluster.domain }}
         InternalURLs:
           "http://localhost:{{ arvados.keepweb.service.port }}": {}
       WebDAVDownload:
-        ExternalURL: https://download.{{ arvados.cluster.domain }}
+        ExternalURL: https://{{ arvados.webdav.download.hostname }}.{{ arvados.cluster.domain }}
       # WebShell: FIXME!!!
       Websocket:
-        ExternalURL: wss://ws.{{ arvados.cluster.domain }}/websocket
+        ExternalURL: wss://{{ arvados.websocket.hostname }}.{{ arvados.cluster.domain }}/websocket
         InternalURLs:
           "http://localhost:{{ arvados.websocket.service.port }}": {}
       Workbench1:
-        ExternalURL: "https://workbench.{{ arvados.cluster.domain }}"
+        ExternalURL: "https://{{ arvados.workbench.hostname }}.{{ arvados.cluster.domain }}"
       Workbench2:
-        ExternalURL: "https://workbench2.{{ arvados.cluster.domain }}"
+        ExternalURL: "https://{{ arvados.workbench2.hostname }}.{{ arvados.cluster.domain }}"
       Keepproxy:
-        ExternalURL: https://keep.{{ arvados.cluster.domain }}
+        ExternalURL: https://{{ arvados.keepproxy.hostname }}.{{ arvados.cluster.domain }}
         InternalURLs:
           "http://localhost:{{ arvados.keepproxy.service.port }}": {}
       Keepstore:
         InternalURLs:
-          "http://keep0.{{ arvados.cluster.domain }}:{{ arvados.keepstore.service.port }}/": {}
+        {% for host in arvados.keepstore.hosts -%}
+          "http://{{host}}.{{ arvados.cluster.domain }}:{{ arvados.keepstore.service.port }}/": {}
+        {% endfor -%}
