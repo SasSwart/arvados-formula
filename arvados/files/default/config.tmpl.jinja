@@ -87,12 +87,6 @@ Clusters:
       DispatchCloud:
         InternalURLs:
           "http://localhost:{{ arvados.dispatcher.service.port }}": {}
-      # GitSSH: FIXME!!!
-      # Health: FIXME!!!
-      # Keepbalance: FIXME!!!
-      # Keepproxy: FIXME!!!
-      # Keepstore: FIXME!!!
-      # Nodemanager: FIXME!!!
       RailsAPI:
         InternalURLs:
           "http://localhost:{{ arvados.api.service.port }}": {}
@@ -108,17 +102,17 @@ Clusters:
       Websocket:
         ExternalURL: wss://{{ arvados.websocket.hostname }}.{{ arvados.cluster.domain }}/websocket
         InternalURLs:
-          "http://localhost:{{ arvados.websocket.service.port }}": {}
+          "http://localhost:{{ arvados.websocket.service.port }}": {} #}
       Workbench1:
         ExternalURL: "https://{{ arvados.workbench.hostname }}.{{ arvados.cluster.domain }}"
-      Workbench2:
-        ExternalURL: "https://{{ arvados.workbench2.hostname }}.{{ arvados.cluster.domain }}"
-      Keepproxy:
+      {# Workbench2:
+        ExternalURL: "https://{{ arvados.workbench2.hostname }}.{{ arvados.cluster.domain }}" #}
+      {# Keepproxy:
         ExternalURL: https://{{ arvados.keepproxy.hostname }}.{{ arvados.cluster.domain }}
         InternalURLs:
-          "http://localhost:{{ arvados.keepproxy.service.port }}": {}
+          "http://localhost:{{ arvados.keepproxy.service.port }}": {} #}
       Keepstore:
         InternalURLs:
-        {% for host in arvados.keepstore.hosts -%}
-          "http://{{host}}.{{ arvados.cluster.domain }}:{{ arvados.keepstore.service.port }}/": {}
-        {% endfor -%}
+          {% for host in arvados.keepstore.hosts -%}
+          "http://{{host}}.{{ arvados.cluster.domain }}:{{ arvados.keepstore.service.port }}": {}
+          {% endfor -%}
