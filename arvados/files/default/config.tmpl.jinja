@@ -116,3 +116,5 @@ Clusters:
           {% for host in arvados.keepstore.hosts -%}
           "http://{{host}}.{{ arvados.cluster.domain }}:{{ arvados.keepstore.service.port }}": {}
           {% endfor -%}
+    Containers:
+      DispatchPrivateKey: {{ arvados.containers.dispatch_private_key }}
