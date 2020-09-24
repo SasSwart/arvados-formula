@@ -115,6 +115,11 @@ Clusters:
         InternalURLs:
           {% for host in arvados.keepstore.hosts -%}
           "http://{{host}}.{{ arvados.cluster.domain }}:{{ arvados.keepstore.service.port }}": {}
-          {% endfor -%}
+          {% endfor %}
+
     Containers:
-      DispatchPrivateKey: {{ arvados.containers.dispatch_private_key }}
+      CloudVMs:
+        # BootProbeCommand is a shell command that succeeds when an instance is ready for service
+        BootProbeCommand: "sudo systemctl status docker"
+      DispatchPrivateKey: |
+        {{ arvados.containers.dispatch_private_key | indent( width=8, indentfirst=False) }}
