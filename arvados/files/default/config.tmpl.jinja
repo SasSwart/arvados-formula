@@ -96,9 +96,9 @@ Clusters:
         ExternalURL: https://{{ arvados.webdav.collections.hostname }}.{{ arvados.cluster.domain }}
         InternalURLs:
           "http://localhost:{{ arvados.keepweb.service.port }}": {}
-      WebDAVDownload:
+      {# WebDAVDownload:
         ExternalURL: https://{{ arvados.webdav.download.hostname }}.{{ arvados.cluster.domain }}
-      # WebShell: FIXME!!!
+      # WebShell: FIXME!!! #}
       Websocket:
         ExternalURL: wss://{{ arvados.websocket.hostname }}.{{ arvados.cluster.domain }}/websocket
         InternalURLs:
