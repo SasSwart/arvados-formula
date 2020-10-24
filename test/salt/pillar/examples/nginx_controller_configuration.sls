@@ -1,21 +1,16 @@
 ---
-{% set nginx_log = '/var/log/nginx' %}
-
 ### NGINX
 nginx:
   ### SERVER
   server:
     config:
-
       ### STREAMS
       http:
         'geo $external_client':
           default: 1
-          '127.0.0.0/24': 0
-          '145.100.59.86/22': 0
-          '156.155.176.38/24': 0
+          '127.0.0.0/8': 0
         upstream controller_upstream:
-          - server: 'localhost:8003  fail_timeout=10s'
+          - server: '127.0.0.2:8003  fail_timeout=10s'
 
   ### SITES
   servers:
@@ -26,7 +21,7 @@ nginx:
         overwrite: true
         config:
           - server:
-            - server_name: example.net api.example.net
+            - server_name: fixme.example.net
             - listen:
               - 80 default
             - location /.well-known:
@@ -34,12 +29,12 @@ nginx:
             - location /:
               - return: '301 https://$host$request_uri'
 
-      arvados_controller:
+      arvados_controller_ssl:
         enabled: true
         overwrite: true
         config:
           - server:
-            - server_name: example.net
+            - server_name: fixme.example.net
             - listen:
               - 443 http2 ssl
             - index: index.html index.htm
@@ -55,6 +50,6 @@ nginx:
               - proxy_set_header: 'X-External-Client $external_client'
             # - include: 'snippets/letsencrypt.conf'
             - include: 'snippets/snakeoil.conf'
-            - access_log: {{ nginx_log }}/example.net.access.log combined
-            - error_log: {{ nginx_log }}/example.net.error.log
+            - access_log: /var/log/nginx/fixme.example.net.access.log combined
+            - error_log: /var/log/nginx/fixme.example.net.error.log
             - client_max_body_size: 128m

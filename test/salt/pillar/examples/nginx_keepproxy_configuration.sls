@@ -1,6 +1,4 @@
 ---
-{% set nginx_log = '/var/log/nginx' %}
-
 ### NGINX
 nginx:
   ### SERVER
@@ -9,17 +7,17 @@ nginx:
       ### STREAMS
       http:
         upstream keepproxy_upstream:
-          - server: '127.0.0.1:25107 fail_timeout=10s'
+          - server: '127.0.0.2:25100 fail_timeout=10s'
 
   servers:
     managed:
       ### DEFAULT
-      arvados_keep_default:
+      arvados_keepproxy_default:
         enabled: true
         overwrite: true
         config:
           - server:
-            - server_name: keep.example.net
+            - server_name: keep.fixme.example.net
             - listen:
               - 80
             - location /.well-known:
@@ -27,12 +25,12 @@ nginx:
             - location /:
               - return: '301 https://$host$request_uri'
 
-      arvados_keepproxy:
+      arvados_keepproxy_default:
         enabled: true
         overwrite: true
         config:
           - server:
-            - server_name: keep.example.net
+            - server_name: keep.fixme.example.net
             - listen:
               - 443 http2 ssl
             - index: index.html index.htm
@@ -52,5 +50,5 @@ nginx:
             - proxy_request_buffering: 'off'
             # - include: 'snippets/letsencrypt.conf'
             - include: 'snippets/snakeoil.conf'
-            - access_log: {{ nginx_log }}/keepproxy.example.net.access.log combined
-            - error_log: {{ nginx_log }}/keepproxy.example.net.error.log
+            - access_log: /var/log/nginx/keepproxy.fixme.example.net.access.log combined
+            - error_log: /var/log/nginx/keepproxy.fixme.example.net.error.log

@@ -1,5 +1,50 @@
 # Changelog
 
+## [1.0.2](https://github.com/saltstack-formulas/arvados-formula/compare/v1.0.1...v1.0.2) (2020-10-17)
+
+
+### Bug Fixes
+
+* **dispatcher:** add missing files for local dispatcher ([eb73d56](https://github.com/saltstack-formulas/arvados-formula/commit/eb73d564b0b36810c56a39bbb2e75267521bfe5c))
+
+## [1.0.1](https://github.com/saltstack-formulas/arvados-formula/compare/v1.0.0...v1.0.1) (2020-10-16)
+
+
+### Bug Fixes
+
+* **config:** prevent duplicated, undesired entries ([d9ede82](https://github.com/saltstack-formulas/arvados-formula/commit/d9ede8264d9a9cbbd6eab15f98abc2326488bc7b))
+
+
+### Documentation
+
+* **examples:** improve consistency in naming ([73a0b42](https://github.com/saltstack-formulas/arvados-formula/commit/73a0b42b03c3a8c247712ce5e64b7215686e9cef))
+
+# [1.0.0](https://github.com/saltstack-formulas/arvados-formula/compare/v0.3.0...v1.0.0) (2020-10-15)
+
+# [0.3.0](https://github.com/saltstack-formulas/arvados-formula/compare/v0.2.1...v0.3.0) (2020-10-14)
+
+
+### Continuous Integration
+
+* **pre-commit:** add to formula [skip ci] ([703e004](https://github.com/saltstack-formulas/arvados-formula/commit/703e0047f809f20919e47718cfe074e4dd8f3b70))
+* **pre-commit:** enable/disable `rstcheck` as relevant [skip ci] ([860adf0](https://github.com/saltstack-formulas/arvados-formula/commit/860adf045fae4506b3af5d1ee7f2ac2530df125a))
+* **pre-commit:** finalise `rstcheck` configuration [skip ci] ([9539adf](https://github.com/saltstack-formulas/arvados-formula/commit/9539adf89eb2543309278f6e48c1146de3cd12d1))
+
+
+### Documentation
+
+* **readme:** fix `rstcheck` violation [skip ci] ([bceb58a](https://github.com/saltstack-formulas/arvados-formula/commit/bceb58ada62e79bf9387a352669dfb0eb722b730)), closes [/travis-ci.org/github/myii/arvados-formula/builds/731605195#L255](https://github.com//travis-ci.org/github/myii/arvados-formula/builds/731605195/issues/L255)
+
+
+### Features
+
+* **components,version:** add extra components, new version ([4bf9501](https://github.com/saltstack-formulas/arvados-formula/commit/4bf9501a14f86845865244ee3ffb03a34707d36c))
+
+
+### Styles
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting [skip ci] ([64798a8](https://github.com/saltstack-formulas/arvados-formula/commit/64798a8c8f9d720de1e346b20e87ecbbffe56e2a))
+
 ## [0.2.1](https://github.com/saltstack-formulas/arvados-formula/compare/v0.2.0...v0.2.1) (2020-06-16)
 
 
