@@ -5,8 +5,8 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import arvados with context %}
 
-{%- if arvados.use_upstream_repo -%}
-  {%- if grains.get('os_family') == 'Debian' -%}
+{%- if arvados.use_upstream_repo %}
+  {%- if grains.get('os_family') == 'Debian' %}
     {%- if arvados.release == 'testing' %}
       {%- set release = grains.get('lsb_distrib_codename') ~ '-testing' %}
     {%- elif arvados.release == 'development' %}
@@ -17,7 +17,7 @@
 arvados-repo-install-pkgrepo-managed:
   pkgrepo.managed:
     - humanname: {{ arvados.repo.humanname }}
-    - name: deb {{ arvados.repo.url_base }}/ {{ release }} main
+    - name: deb {{ arvados.repo.url_base }}/{{ release }} {{ release }} main
     - file: {{ arvados.repo.file }}
     - key_url: {{ arvados.repo.key_url }}
 

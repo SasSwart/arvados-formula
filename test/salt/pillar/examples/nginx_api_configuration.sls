@@ -1,20 +1,26 @@
 ---
+{%- if grains.os_family in ('RedHat',) %}
+  {%- set group = 'nginx' %}
+{%- else %}
+  {%- set group = 'www-data' %}
+{%- endif %}
+
 ### ARVADOS
 arvados:
   config:
-    group: www-data
+    group: {{ group }}
 
 ### NGINX
 nginx:
   ### SITES
   servers:
     managed:
-      arvados_api:
+      arvados_api.conf:
         enabled: true
         overwrite: true
         config:
           - server:
-            - listen: '127.0.0.2:8004'
+            - listen: 'api.internal:8004'
             - server_name: api
             - root: /var/www/arvados-api/current/public
             - index:  index.html index.htm

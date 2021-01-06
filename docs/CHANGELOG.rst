@@ -2,6 +2,76 @@
 Changelog
 =========
 
+`1.1.4 <https://github.com/saltstack-formulas/arvados-formula/compare/v1.1.3...v1.1.4>`_ (2020-12-23)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **apt:** update repository URL (\ `b1b06f9 <https://github.com/saltstack-formulas/arvados-formula/commit/b1b06f9d72917d55a6622eddf43a896432ffd8c4>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **commitlint:** ensure ``upstream/master`` uses main repo URL [skip ci] (\ `24c9b5d <https://github.com/saltstack-formulas/arvados-formula/commit/24c9b5d1e79a22189c93902ec7099dd9dc656f71>`_\ )
+* **gitlab-ci:** add ``rubocop`` linter (with ``allow_failure``\ ) [skip ci] (\ `7a3adcc <https://github.com/saltstack-formulas/arvados-formula/commit/7a3adcc682b1c9f5a4a44a34306425484a843799>`_\ )
+* **gitlab-ci:** use GitLab CI as Travis CI replacement (\ `e3ad2e8 <https://github.com/saltstack-formulas/arvados-formula/commit/e3ad2e84ade6d1c3112e5f278b71b065f6cc7a66>`_\ )
+
+`1.1.3 <https://github.com/saltstack-formulas/arvados-formula/compare/v1.1.2...v1.1.3>`_ (2020-12-07)
+---------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **examples:** reduce snakeoil cert days to 1yr (\ `0bc7de5 <https://github.com/saltstack-formulas/arvados-formula/commit/0bc7de5ca4bf431ddebcedd6a38fb911a2234fdf>`_\ )
+
+`1.1.2 <https://github.com/saltstack-formulas/arvados-formula/compare/v1.1.1...v1.1.2>`_ (2020-12-07)
+---------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **examples:** add missing SAN to snakeoil ssl cert (\ `a68f6fa <https://github.com/saltstack-formulas/arvados-formula/commit/a68f6fa7e39be665dcea0becc7dad2628e715b29>`_\ )
+* **examples:** better organization and naming (\ `fa49dbe <https://github.com/saltstack-formulas/arvados-formula/commit/fa49dbe833c7867ac95da84f9b36c8114cd89039>`_\ )
+* **examples:** improve helper snakeoil ssl certs (\ `fcec3ef <https://github.com/saltstack-formulas/arvados-formula/commit/fcec3ef0a2623e8d51def868ccf4622b7c200be4>`_\ )
+
+`1.1.1 <https://github.com/saltstack-formulas/arvados-formula/compare/v1.1.0...v1.1.1>`_ (2020-11-24)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **creds:** remove underscores (\ `64c887c <https://github.com/saltstack-formulas/arvados-formula/commit/64c887ce15cd538dc1cc003d2cde2773cd1d291e>`_\ )
+* **crunch-dispatch-local:** re-enable crunch-run.sh to tune docker call (\ `0fdc919 <https://github.com/saltstack-formulas/arvados-formula/commit/0fdc919736977fbffdd4ba76ef0f41c67f279842>`_\ )
+* **dispatcher:** add missing crunch-dispatch-local config file (\ `91e5896 <https://github.com/saltstack-formulas/arvados-formula/commit/91e5896ec5fad6edbb8cc2574cd02f6ddd5f3a1c>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **single_host:** fix hostnames and tests (\ `6c52de7 <https://github.com/saltstack-formulas/arvados-formula/commit/6c52de7c70c90784df58e6dbc6c43a71b9cc7e7c>`_\ )
+
+Tests
+^^^^^
+
+
+* **dispatcher:** add helper state (\ `1bddf7e <https://github.com/saltstack-formulas/arvados-formula/commit/1bddf7efba4c6abeaa1a530664672bffa965998d>`_\ )
+* **dispatcher:** cert needs to match each hostname (\ `2ac8a85 <https://github.com/saltstack-formulas/arvados-formula/commit/2ac8a85f91b60ebe5fb337bfcbeb09836842ed85>`_\ )
+
+`1.1.0 <https://github.com/saltstack-formulas/arvados-formula/compare/v1.0.2...v1.1.0>`_ (2020-11-03)
+---------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **distro:** add centos-7 support (\ `ba5e37e <https://github.com/saltstack-formulas/arvados-formula/commit/ba5e37ebc18049d4340388fc0c19dcb2a78d6a86>`_\ )
+
 `1.0.2 <https://github.com/saltstack-formulas/arvados-formula/compare/v1.0.1...v1.0.2>`_ (2020-10-17)
 ---------------------------------------------------------------------------------------------------------
 
